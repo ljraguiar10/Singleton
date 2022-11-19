@@ -1,6 +1,6 @@
 package designpatterns;
 
-//metódo lazy
+//metódo lazy + multithread
 
 public class Singleton_2 {
 
