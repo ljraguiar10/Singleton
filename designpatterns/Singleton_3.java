@@ -3,45 +3,42 @@ package designpatterns;
 public class Singleton_3 {
 
 	public static void main(String[] args) {
-
+        ProdutoFactory2.INSTANCE.novoProduto(1);
 	}
 }
 
-//--------------------------------------------
+interface Produto5 {
 
-class ConfiguraçãoAplicação {
+}
 
-	private static ConfiguraçãoAplicação instance;
+class ProdutoPadrao5 implements Produto5 {
 
-	public String nomeAplicação;
-	public String versão;
-	public String cor;
+}
 
-	protected ConfiguraçãoAplicação() {
-		this.nomeAplicação = "Singleton";
-		this.versão = "3.0";
-		this.cor = "Azul";
-	}
+class ProdutoDigital5 extends ProdutoPadrao5 {
 
-	public ConfiguraçãoAplicação getInstance() {
-		if (instance == null) {
-			String configuração = System.getProperty("class.configuração");
-			if (configuração == "teste") {
-				instance = new ConfiguraçãoAplicaçãoTeste();
-			}
-			instance = new ConfiguraçãoAplicação();
+}
+
+class ProdutoFisico5 extends ProdutoPadrao5 {
+
+}
+
+//-----------------------------
+//ProductFactory.java
+
+enum ProdutoFactory2 {
+	INSTANCE;
+
+	public Produto5 novoProduto(int tipoProduto) {
+		switch (tipoProduto) {
+		case 1:
+			return new ProdutoPadrao5();
+		case 2:
+			return new ProdutoDigital5();
+		case 3:
+			return new ProdutoFisico5();
+		default:
+			throw new IllegalArgumentException();
 		}
-		return instance;
 	}
-}
-//-------------------------------------------------
-
-class ConfiguraçãoAplicaçãoTeste extends ConfiguraçãoAplicação {
-
-	protected ConfiguraçãoAplicaçãoTeste() {
-		this.nomeAplicação = "Singleton Teste";
-		this.versão = "3.0";
-		this.cor = "Vermelho";
-	}
-
 }
