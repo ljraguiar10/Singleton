@@ -1,5 +1,7 @@
 package designpatterns;
 
+// subclasses
+
 public class Singleton_4{
 
 	public static void main(String[] args) {
