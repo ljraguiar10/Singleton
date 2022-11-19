@@ -1,12 +1,13 @@
 package designpatterns;
 
-public class Singleton {
+// atributo static
+
+public class Singleton_1 {
 
 	public static void main(String[] args) {
 
 		// new ProdutoFactory().novoProduto(1);
-		// ProdutoFactory.INSTANCE.novoProduto(2);
-		ProdutoFactory.getInstance().novoProduto(1);
+		ProdutoFactory.INSTANCE.novoProduto(1);
 	}
 
 }
@@ -29,19 +30,19 @@ class ProdutoFisico4 extends ProdutoPadrao4 {
 
 class ProdutoFactory {
 
-	// public static final ProdutoFactory INSTANCE = new ProdutoFactory();
-	private static ProdutoFactory instance;
+	public static final ProdutoFactory INSTANCE = new ProdutoFactory();
+	//private static ProdutoFactory instance;
 
 	private ProdutoFactory() {
 
 	}
 
-	public static synchronized ProdutoFactory getInstance() {
-		if (instance == null) {
-			instance = new ProdutoFactory();
-		}
-		return instance;
-	}
+	//public static synchronized ProdutoFactory getInstance() {
+		//if (instance == null) {
+			//instance = new ProdutoFactory();
+		//}
+		//return instance;
+	//}
 
 	public Produto4 novoProduto(int tipoProduto) {
 		switch (tipoProduto) {
