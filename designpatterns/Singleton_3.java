@@ -1,5 +1,7 @@
 package designpatterns;
 
+// Enum
+
 public class Singleton_3 {
 
 	public static void main(String[] args) {
